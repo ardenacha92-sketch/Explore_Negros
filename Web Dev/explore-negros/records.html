@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse all tourist destinations in Negros Occidental — waterfalls, mountain resorts, islands, and more.">
+  <title>Explore Negros | Destinations</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ══ HEADER ══════════════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="site-logo" aria-label="Explore Negros – Go to homepage">
+        🌿 Explore <span>Negros</span>
+      </a>
+      <button class="nav-toggle"
+              aria-label="Toggle navigation menu"
+              aria-expanded="false"
+              aria-controls="main-nav">
+      </button>
+      <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="records.html">Destinations</a></li>
+          <li><a href="about.html">About/Help</a></li>
+          <li><a href="form.html">Visit Request</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ══ PAGE HERO BANNER ══════════════════════════════════════ -->
+  <div class="dest-page-hero">
+    <div class="dest-page-hero-overlay" aria-hidden="true"></div>
+    <div class="container dest-page-hero-content">
+      <span class="dest-page-eyebrow">&#x1F30F; Negros Occidental Tourism</span>
+      <h1 class="dest-page-title">Explore All Destinations</h1>
+      <p class="dest-page-subtitle">
+        Discover waterfalls, mountain resorts, islands, and heritage landmarks.
+        Filter by city or specific barangay to find your next adventure.
+      </p>
+
+      <!-- ── Search Bar ── -->
+      <div class="dest-searchbar-wrap" role="search" aria-label="Search destinations">
+        <span class="dest-search-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </span>
+        <input type="search"
+               id="dest-search"
+               class="dest-search-input"
+               placeholder="Search by destination name, city, barangay, or activity…"
+               aria-label="Search destinations"
+               autocomplete="off">
+        <button type="button" class="dest-search-clear" id="search-clear-btn" aria-label="Clear search" hidden>&#x2715;</button>
+      </div>
+
+      <!-- ── Quick Searches ── -->
+      <div class="dest-quick-searches" aria-label="Popular search shortcuts">
+        <span class="quick-search-label">Popular:</span>
+        <button type="button" class="quick-search-tag" data-query="waterfall">&#x1F30A; Waterfalls</button>
+        <button type="button" class="quick-search-tag" data-query="island">&#x1F3DD;&#xFE0F; Islands</button>
+        <button type="button" class="quick-search-tag" data-query="resort">&#x1F3D4; Mountain Resorts</button>
+        <button type="button" class="quick-search-tag" data-query="Talisay">📍 Talisay City</button>
+        <button type="button" class="quick-search-tag" data-query="Silay">📍 Silay City</button>
+        <button type="button" class="quick-search-tag" data-query="heritage">&#x1F3DB; Heritage</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ MAIN CONTENT ════════════════════════════════════════ -->
+  <main id="main-content">
+    <section class="dest-list-section" aria-labelledby="dest-list-heading">
+      <div class="container">
+        <div class="dest-page-layout">
+
+          <!-- ── Sidebar Filters ── -->
+          <aside class="dest-filters-sidebar" aria-label="Destination filters">
+
+            <div class="filter-panel">
+              <div class="filter-panel-header">
+                <h2 class="filter-panel-title">&#x1F5FA;&#xFE0F; Filter Spots</h2>
+                <button type="button" class="filter-reset-btn" id="filter-reset-btn">Clear all</button>
+              </div>
+
+              <!-- City / Municipality filter -->
+              <div class="filter-group">
+                <div class="filter-group-header">
+                  <h3 class="filter-group-label">City / Municipality</h3>
+                  <span class="filter-group-count" id="city-count-hint"></span>
+                </div>
+                <div class="filter-chip-list" id="city-filter-list" role="group" aria-label="Filter by city">
+                  <button type="button" class="filter-chip active" data-city="all">All Cities</button>
+                  <!-- Cities injected by JS from live data -->
+                </div>
+              </div>
+
+              <!-- Barangay filter (dynamic based on selected city) -->
+              <div class="filter-group" id="barangay-filter-group">
+                <div class="filter-group-header">
+                  <h3 class="filter-group-label">Barangay</h3>
+                  <span class="filter-group-count" id="brgy-count-hint"></span>
+                </div>
+                <div class="filter-chip-list" id="barangay-filter-list" role="group" aria-label="Filter by barangay">
+                  <button type="button" class="filter-chip active" data-barangay="all">All Barangays</button>
+                  <!-- Barangays injected by JS from live data -->
+                </div>
+              </div>
+
+              <!-- Type filter -->
+              <div class="filter-group">
+                <div class="filter-group-header">
+                  <h3 class="filter-group-label">Type / Category</h3>
+                </div>
+                <div class="filter-chip-list" id="type-filter-list" role="group" aria-label="Filter by type">
+                  <button type="button" class="filter-chip active" data-type="all">All Types</button>
+                  <button type="button" class="filter-chip" data-type="waterfall">&#x1F4A7; Waterfall</button>
+                  <button type="button" class="filter-chip" data-type="beach">&#x1F3D6; Beach &amp; Island</button>
+                  <button type="button" class="filter-chip" data-type="mountain">&#x26F0; Mountain</button>
+                  <button type="button" class="filter-chip" data-type="heritage">&#x1F3DB; Heritage</button>
+                  <button type="button" class="filter-chip" data-type="resort">&#x1F3D4; Resort</button>
+                </div>
+              </div>
+
+              <!-- Sort -->
+              <div class="filter-group">
+                <div class="filter-group-header">
+                  <h3 class="filter-group-label">Sort By</h3>
+                </div>
+                <select class="filter-select" id="dest-sort" aria-label="Sort destinations">
+                  <option value="name-asc">Name A → Z</option>
+                  <option value="name-desc">Name Z → A</option>
+                  <option value="fee-asc">Fee: Low to High</option>
+                  <option value="fee-desc">Fee: High to Low</option>
+                </select>
+              </div>
+            </div>
+
+          </aside>
+
+          <!-- ── Results Area ── -->
+          <div class="dest-results-area">
+
+            <!-- Results Header -->
+            <div class="dest-results-header">
+              <h2 class="dest-results-count" id="dest-list-heading">
+                <span id="results-count-num">…</span> Destinations Found
+              </h2>
+              <div class="dest-view-toggle" role="group" aria-label="View mode">
+                <button type="button" class="view-btn active" id="view-grid-btn" aria-label="Grid view" title="Grid view">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                </button>
+                <button type="button" class="view-btn" id="view-list-btn" aria-label="List view" title="List view">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="3" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="3" cy="18" r="1.5" fill="currentColor" stroke="none"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Active filter tags (shown when filters applied) -->
+            <div class="active-filter-tags" id="active-filter-tags" hidden></div>
+
+            <!-- Destination Cards Grid -->
+            <div id="dest-list"
+                 class="dest-cards-grid"
+                 aria-live="polite"
+                 aria-busy="true"
+                 aria-label="List of tourist destinations">
+              <div class="loading">
+                <div class="spinner"></div>
+                <span>Loading destinations…</span>
+              </div>
+            </div>
+
+          </div><!-- /.dest-results-area -->
+        </div><!-- /.dest-page-layout -->
+      </div>
+    </section>
+  </main>
+
+  <!-- ══ FOOTER ══════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col footer-col--brand">
+            <a href="index.html" class="footer-logo" aria-label="Explore Negros – Homepage">
+              &#x1F33F; Explore <span>Negros</span>
+            </a>
+            <p class="footer-tagline">
+              Your gateway to the beauty, culture, and warmth of Negros Occidental
+              &mdash; the heart of the Philippines.
+            </p>
+            <div class="footer-tags">
+              <span class="footer-tag">&#x1F3DD;&#xFE0F; Islands</span>
+              <span class="footer-tag">&#x26F0;&#xFE0F; Mountains</span>
+              <span class="footer-tag">&#x1F3AD; Festivals</span>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h3 class="footer-col-heading">Explore</h3>
+            <ul class="footer-nav-list">
+              <li><a href="records.html">All Destinations</a></li>
+              <li><a href="form.html">Plan a Visit</a></li>
+              <li><a href="about.html">About the Province</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3 class="footer-col-heading">Help &amp; Info</h3>
+            <ul class="footer-nav-list">
+              <li><a href="about.html">How It Works</a></li>
+              <li><a href="about.html">FAQs</a></li>
+              <li><a href="form.html">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-col footer-col--cta">
+            <h3 class="footer-col-heading">Plan Your Trip</h3>
+            <p class="footer-cta-desc">Ready to visit? Submit a request and we'll help you plan your adventure.</p>
+            <a href="form.html" class="footer-cta-link">Get Started &#x2192;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-row">
+        <p class="footer-copy">&copy; 2026 Explore Negros Occidental. All rights reserved.</p>
+        <nav class="footer-bottom-nav" aria-label="Footer secondary links">
+          <a href="about.html">About</a>
+          <a href="admin.html">Admin</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══ SCRIPTS ══════════════════════════════════════════════ -->
+  <script src="assets/js/supabase.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/records.js"></script>
+
+</body>
+</html>

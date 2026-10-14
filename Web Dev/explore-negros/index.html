@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Negros Occidental — Discover breathtaking tourist destinations, waterfalls, mountain resorts, and tropical islands across the heart of the Philippines.">
+  <title>Explore Negros | Home</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Skip to main content (accessibility) -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ══════════════════════════════════════════════════════
+       SITE HEADER & NAVIGATION
+  ══════════════════════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="site-logo" aria-label="Explore Negros – Go to homepage">
+        🌿 Explore <span>Negros</span>
+      </a>
+
+      <!-- Mobile hamburger button -->
+      <button class="nav-toggle"
+              aria-label="Toggle navigation menu"
+              aria-expanded="false"
+              aria-controls="main-nav">
+      </button>
+
+      <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="records.html">Destinations</a></li>
+          <li><a href="about.html">About/Help</a></li>
+          <li><a href="form.html">Visit Request</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════════════════════
+       MAIN CONTENT
+  ══════════════════════════════════════════════════════ -->
+  <main id="main-content">
+
+    <!-- ── Hero Section ───────────────────────────────── -->
+    <section class="hero" aria-labelledby="hero-title" id="hero-section">
+      <!-- Dynamic Moving Background Slider -->
+      <div class="hero-slider" id="hero-slider" aria-hidden="true"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-eyebrow">🌿 Negros Occidental Tourism</span>
+          <h1 class="hero-title" id="hero-title">
+            Discover <em>Negros Occidental</em>
+          </h1>
+          <p class="hero-desc">
+            Explore stunning waterfalls, mountain resorts, tropical islands, and cultural
+            heritage sites across the heart of the Philippines.
+          </p>
+          <div class="hero-actions">
+            <a href="records.html" class="btn btn-primary">Explore Destinations →</a>
+            <a href="form.html"    class="btn btn-secondary">Plan Your Visit</a>
+          </div>
+
+          <!-- Hero Destination Tracker -->
+          <div class="hero-meta">
+            <div class="hero-badge" id="hero-badge">
+              <span class="pulse-indicator" aria-hidden="true"></span>
+              <span id="hero-badge-text">Featured: Negros Occidental</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Center Slide Indicators -->
+      <div class="hero-indicators" id="hero-indicators" role="tablist" aria-label="Destination slide selection"></div>
+    </section>
+
+    <!-- ── Featured Destinations ──────────────────────── -->
+    <section class="section featured-section" aria-labelledby="featured-title">
+      <div class="container">
+        <div class="section-header-centered">
+          <span class="section-tag">✨ Must-Visit Spots</span>
+          <h2 class="section-title" id="featured-title">Featured Destinations</h2>
+          <p class="section-subtitle">
+            Handpicked places worth exploring in Negros Occidental.
+          </p>
+        </div>
+
+        <!-- Cards are injected by JavaScript -->
+        <div class="destinations-grid" id="featured-grid" aria-live="polite" aria-busy="true">
+          <div class="loading">
+            <div class="spinner"></div>
+            <span>Loading destinations…</span>
+          </div>
+        </div>
+
+        <div class="featured-actions">
+          <a href="records.html" class="btn-explore">
+            <span>View All Destinations</span>
+            <span class="btn-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Why Negros Occidental ───────────────────────── -->
+    <section class="section why-section" aria-labelledby="why-title">
+      <div class="container">
+        <div class="section-header-centered">
+          <span class="section-tag">🌿 Why Visit Negros?</span>
+          <h2 class="section-title" id="why-title">Experience the Heart of the Philippines</h2>
+          <p class="section-subtitle">
+            From majestic volcanoes and cascading waterfalls to the world-renowned MassKara Festival,
+            discover what makes Negros Occidental an unforgettable journey.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-card-header">
+              <div class="feature-icon-box icon-nature" aria-hidden="true">
+                <span class="feature-emoji">🌊</span>
+              </div>
+              <span class="feature-step">01</span>
+            </div>
+            <div class="feature-card-body">
+              <h3>Natural Wonders</h3>
+              <p>Hike ancient crater trails at Mt. Kanlaon, dip in volcanic hot springs at Mambukal, and swim in emerald waterfall lagoons hidden deep in the highlands.</p>
+              <div class="feature-tags">
+                <span class="f-tag">Waterfalls</span>
+                <span class="f-tag">Hot Springs</span>
+                <span class="f-tag">Islands</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-card-header">
+              <div class="feature-icon-box icon-culture" aria-hidden="true">
+                <span class="feature-emoji">🎭</span>
+              </div>
+              <span class="feature-step">02</span>
+            </div>
+            <div class="feature-card-body">
+              <h3>Rich Culture & History</h3>
+              <p>Step through timeless ancestral mansions in Silay Heritage City and experience the vibrant colors, rhythmic beats, and smiles of the world-famous MassKara Festival.</p>
+              <div class="feature-tags">
+                <span class="f-tag">MassKara</span>
+                <span class="f-tag">The Ruins</span>
+                <span class="f-tag">Heritage Houses</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-card-header">
+              <div class="feature-icon-box icon-food" aria-hidden="true">
+                <span class="feature-emoji">🍱</span>
+              </div>
+              <span class="feature-step">03</span>
+            </div>
+            <div class="feature-card-body">
+              <h3>Culinary Capital</h3>
+              <p>Savor authentic Bacolod chicken inasal fresh off the charcoal grill, freshly caught coastal seafood, and delectable native piaya, Napoleones, and heirloom sweets.</p>
+              <div class="feature-tags">
+                <span class="f-tag">Chicken Inasal</span>
+                <span class="f-tag">Napoleones</span>
+                <span class="f-tag">Piaya</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-card-header">
+              <div class="feature-icon-box icon-hospitality" aria-hidden="true">
+                <span class="feature-emoji">🤝</span>
+              </div>
+              <span class="feature-step">04</span>
+            </div>
+            <div class="feature-card-body">
+              <h3>Warm Negrense Hospitality</h3>
+              <p>Known as the "Land of Smiles", experience genuine Negrense warmth and community spirit that greets every traveler like longtime family.</p>
+              <div class="feature-tags">
+                <span class="f-tag">City of Smiles</span>
+                <span class="f-tag">Welcoming Locals</span>
+                <span class="f-tag">Safe Travels</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Province Quick Stats Strip -->
+        <div class="why-stats-strip" aria-label="Negros Occidental at a glance">
+          <div class="stat-pill">
+            <span class="stat-pill-num">32</span>
+            <span class="stat-pill-label">Cities & Municipalities</span>
+          </div>
+          <div class="stat-pill-divider" aria-hidden="true"></div>
+          <div class="stat-pill">
+            <span class="stat-pill-num">#1</span>
+            <span class="stat-pill-label">Organic Agriculture Hub</span>
+          </div>
+          <div class="stat-pill-divider" aria-hidden="true"></div>
+          <div class="stat-pill">
+            <span class="stat-pill-num">100+</span>
+            <span class="stat-pill-label">Natural Attractions & Trails</span>
+          </div>
+          <div class="stat-pill-divider" aria-hidden="true"></div>
+          <div class="stat-pill">
+            <span class="stat-pill-num">Year-Round</span>
+            <span class="stat-pill-label">Festivals & Celebrations</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Call to Action Banner ──────────────────────── -->
+    <section class="cta-banner" aria-labelledby="cta-title">
+      <div class="cta-orb cta-orb--l" aria-hidden="true"></div>
+      <div class="cta-orb cta-orb--r" aria-hidden="true"></div>
+      <div class="container">
+        <div class="cta-inner">
+          <div class="cta-icon-wrap" aria-hidden="true">
+            <span class="cta-icon-emoji">&#x1F30F;</span>
+          </div>
+          <div class="cta-body">
+            <span class="cta-eyebrow">&#x2708;&#xFE0F;&nbsp; Start Your Journey</span>
+            <h2 class="cta-heading" id="cta-title">Ready to Explore Negros?</h2>
+            <p class="cta-desc">
+              Submit a visit request and our team will help you craft the perfect
+              Negros Occidental adventure &mdash; waterfalls, heritage sites, and beyond.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a href="form.html" class="cta-btn-primary">
+              Submit a Visit Request
+              <span class="cta-arrow" aria-hidden="true">&#x2192;</span>
+            </a>
+            <a href="records.html" class="cta-btn-ghost">Browse Destinations</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <!-- Footer Top Grid -->
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+
+          <!-- Brand Column -->
+          <div class="footer-col footer-col--brand">
+            <a href="index.html" class="footer-logo" aria-label="Explore Negros – Homepage">
+              &#x1F33F; Explore <span>Negros</span>
+            </a>
+            <p class="footer-tagline">
+              Your gateway to the beauty, culture, and warmth of Negros Occidental
+              &mdash; the heart of the Philippines.
+            </p>
+            <div class="footer-tags">
+              <span class="footer-tag">&#x1F3DD;&#xFE0F; Islands</span>
+              <span class="footer-tag">&#x26F0;&#xFE0F; Mountains</span>
+              <span class="footer-tag">&#x1F3AD; Festivals</span>
+            </div>
+          </div>
+
+          <!-- Explore Links -->
+          <div class="footer-col">
+            <h3 class="footer-col-heading">Explore</h3>
+            <ul class="footer-nav-list">
+              <li><a href="records.html">All Destinations</a></li>
+              <li><a href="form.html">Plan a Visit</a></li>
+              <li><a href="about.html">About the Province</a></li>
+            </ul>
+          </div>
+
+          <!-- Help Links -->
+          <div class="footer-col">
+            <h3 class="footer-col-heading">Help &amp; Info</h3>
+            <ul class="footer-nav-list">
+              <li><a href="about.html">How It Works</a></li>
+              <li><a href="about.html">FAQs</a></li>
+              <li><a href="form.html">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <!-- Mini CTA Column -->
+          <div class="footer-col footer-col--cta">
+            <h3 class="footer-col-heading">Plan Your Trip</h3>
+            <p class="footer-cta-desc">Ready to visit? Submit a request and we'll help you plan your adventure.</p>
+            <a href="form.html" class="footer-cta-link">
+              Get Started &#x2192;
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom Bar -->
+    <div class="footer-bottom">
+      <div class="container footer-bottom-row">
+        <p class="footer-copy">&copy; 2026 Explore Negros Occidental. All rights reserved.</p>
+        <nav class="footer-bottom-nav" aria-label="Footer secondary links">
+          <a href="about.html">About</a>
+          <a href="admin.html">Admin</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════════════════════ -->
+  <script src="assets/js/supabase.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    /* ── Hero Background Slider ───────────────────────────────
+       Automatically moves and switches destination pictures every 3s
+       ──────────────────────────────────────────────────────── */
+    function initHeroSlider(destinations) {
+      const sliderEl     = document.getElementById('hero-slider');
+      const badgeText    = document.getElementById('hero-badge-text');
+      const indicatorsEl = document.getElementById('hero-indicators');
+
+      if (!sliderEl || !destinations || destinations.length === 0) return;
+
+      const validDests = destinations.filter(d => d.image_url);
+      if (validDests.length === 0) return;
+
+      // Clear any prior elements
+      sliderEl.innerHTML = '';
+      if (indicatorsEl) indicatorsEl.innerHTML = '';
+
+      // Preload images and create slide elements
+      const slides = validDests.map((dest, idx) => {
+        const img = new Image();
+        img.src = dest.image_url;
+
+        const slide = document.createElement('div');
+        slide.className = 'hero-slide' + (idx === 0 ? ' active' : '');
+        slide.style.backgroundImage = 'url("' + dest.image_url + '")';
+        sliderEl.appendChild(slide);
+
+        if (indicatorsEl && validDests.length > 1) {
+          const dot = document.createElement('button');
+          dot.className = 'hero-dot' + (idx === 0 ? ' active' : '');
+          dot.setAttribute('role', 'tab');
+          dot.setAttribute('aria-label', 'View ' + dest.name);
+          dot.addEventListener('click', () => {
+            goToSlide(idx);
+            resetTimer();
+          });
+          indicatorsEl.appendChild(dot);
+        }
+
+        return { slide, dest };
+      });
+
+      let currentIndex = 0;
+      let slideInterval = null;
+
+      function updateBadge(dest) {
+        if (!badgeText) return;
+        badgeText.textContent = '📍 ' + dest.name + ' • ' + dest.location;
+      }
+
+      function goToSlide(nextIndex) {
+        if (nextIndex === currentIndex) return;
+
+        const prevSlide = slides[currentIndex].slide;
+        const nextSlide = slides[nextIndex].slide;
+
+        // Reset non-participating slides
+        slides.forEach((s, i) => {
+          if (i !== currentIndex && i !== nextIndex) {
+            s.slide.className = 'hero-slide';
+          }
+        });
+
+        prevSlide.className = 'hero-slide prev';
+        nextSlide.className = 'hero-slide active';
+
+        if (indicatorsEl) {
+          const dots = indicatorsEl.querySelectorAll('.hero-dot');
+          dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === nextIndex);
+          });
+        }
+
+        currentIndex = nextIndex;
+        updateBadge(slides[currentIndex].dest);
+      }
+
+      function nextSlide() {
+        const nextIndex = (currentIndex + 1) % slides.length;
+        goToSlide(nextIndex);
+      }
+
+      function resetTimer() {
+        if (slideInterval) clearInterval(slideInterval);
+        if (slides.length > 1) {
+          slideInterval = setInterval(nextSlide, 3000); // 3 seconds
+        }
+      }
+
+      // Initial active destination badge
+      updateBadge(slides[0].dest);
+
+      // Start automatic 3-second cycle
+      resetTimer();
+    }
+
+    /* ── Initialize on Page Load ──────────────────────────── */
+    document.addEventListener('DOMContentLoaded', async () => {
+      // 1. Immediately start hero slider with existing destinations so it moves right away
+      if (window.EN_DESTINATIONS && window.EN_DESTINATIONS.length > 0) {
+        initHeroSlider(window.EN_DESTINATIONS);
+      }
+
+      const grid = document.getElementById('featured-grid');
+      let destinations;
+
+      try {
+        destinations = await window.DB.select('destinations', 'status=eq.active&order=name.asc');
+      } catch (err) {
+        console.warn('DB fetch failed, using fallback destinations:', err);
+        destinations = window.EN_DESTINATIONS;
+      }
+
+      // 2. If DB returns destinations, refresh slider with the complete list
+      if (destinations && destinations.length > 0) {
+        initHeroSlider(destinations);
+      }
+
+      // 3. Render featured destinations grid (top 3)
+      if (grid) {
+        const featured = (destinations && destinations.length > 0)
+          ? destinations.slice(0, 3)
+          : (window.EN_DESTINATIONS ? window.EN_DESTINATIONS.slice(0, 3) : []);
+
+        if (!featured || featured.length === 0) {
+          grid.innerHTML = '<p style="color:var(--color-text-muted)">No featured destinations available.</p>';
+        } else {
+          grid.innerHTML = featured.map((d, idx) => renderDestCard(d, idx)).join('');
+        }
+        grid.setAttribute('aria-busy', 'false');
+      }
+    });
+  </script>
+
+</body>
+</html>

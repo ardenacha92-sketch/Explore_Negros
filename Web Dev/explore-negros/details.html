@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View full details about this tourist destination in Negros Occidental, including activities, facilities, and visiting information.">
+  <title>Explore Negros | Destination Details</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ══ HEADER ══════════════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="site-logo" aria-label="Explore Negros – Go to homepage">
+        🌿 Explore <span>Negros</span>
+      </a>
+      <button class="nav-toggle"
+              aria-label="Toggle navigation menu"
+              aria-expanded="false"
+              aria-controls="main-nav">
+      </button>
+      <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="records.html">Destinations</a></li>
+          <li><a href="about.html">About/Help</a></li>
+          <li><a href="form.html">Visit Request</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ══ MAIN CONTENT ════════════════════════════════════════ -->
+  <!-- Content (banner, detail layout, sidebar) is injected by details.js -->
+  <main id="main-content">
+    <div id="details-content" aria-live="polite" aria-busy="true">
+      <div class="loading" style="padding:5rem 0;">
+        <div class="spinner"></div>
+        <span>Loading destination…</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- ══ FOOTER ══════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col footer-col--brand">
+            <a href="index.html" class="footer-logo" aria-label="Explore Negros – Homepage">
+              &#x1F33F; Explore <span>Negros</span>
+            </a>
+            <p class="footer-tagline">
+              Your gateway to the beauty, culture, and warmth of Negros Occidental
+              &mdash; the heart of the Philippines.
+            </p>
+            <div class="footer-tags">
+              <span class="footer-tag">&#x1F3DD;&#xFE0F; Islands</span>
+              <span class="footer-tag">&#x26F0;&#xFE0F; Mountains</span>
+              <span class="footer-tag">&#x1F3AD; Festivals</span>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h3 class="footer-col-heading">Explore</h3>
+            <ul class="footer-nav-list">
+              <li><a href="records.html">All Destinations</a></li>
+              <li><a href="form.html">Plan a Visit</a></li>
+              <li><a href="about.html">About the Province</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3 class="footer-col-heading">Help &amp; Info</h3>
+            <ul class="footer-nav-list">
+              <li><a href="about.html">How It Works</a></li>
+              <li><a href="about.html">FAQs</a></li>
+              <li><a href="form.html">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-col footer-col--cta">
+            <h3 class="footer-col-heading">Plan Your Trip</h3>
+            <p class="footer-cta-desc">Ready to visit? Submit a request and we'll help you plan your adventure.</p>
+            <a href="form.html" class="footer-cta-link">Get Started &#x2192;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-row">
+        <p class="footer-copy">&copy; 2026 Explore Negros Occidental. All rights reserved.</p>
+        <nav class="footer-bottom-nav" aria-label="Footer secondary links">
+          <a href="about.html">About</a>
+          <a href="admin.html">Admin</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══ SCRIPTS ══════════════════════════════════════════════ -->
+  <script src="assets/js/supabase.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/details.js"></script>
+
+</body>
+</html>

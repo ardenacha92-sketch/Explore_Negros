@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Submit a visit request to Explore Negros. Tell us where you want to go and when, and our team will help you plan your trip.">
+  <title>Explore Negros | Visit Request</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ══ HEADER ══════════════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="site-logo" aria-label="Explore Negros – Go to homepage">
+        🌿 Explore <span>Negros</span>
+      </a>
+      <button class="nav-toggle"
+              aria-label="Toggle navigation menu"
+              aria-expanded="false"
+              aria-controls="main-nav">
+      </button>
+      <nav id="main-nav" class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="records.html">Destinations</a></li>
+          <li><a href="about.html">About/Help</a></li>
+          <li><a href="form.html">Visit Request</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ══ FORM HERO BANNER ═══════════════════════════════════════ -->
+  <div class="form-hero">
+    <div class="form-hero-overlay" aria-hidden="true"></div>
+    <div class="container form-hero-content">
+      <span class="form-hero-eyebrow">&#x1F4CB; Visit Request</span>
+      <h1 class="form-hero-title">Plan Your Negros Adventure</h1>
+      <p class="form-hero-sub">
+        Fill in the form below and our tourism team will reach out within
+        1–3 business days to help craft your perfect itinerary.
+      </p>
+
+      <!-- Steps strip -->
+      <div class="form-steps" aria-label="How it works">
+        <div class="form-step">
+          <span class="form-step-num">1</span>
+          <span class="form-step-label">Fill the form</span>
+        </div>
+        <div class="form-step-line" aria-hidden="true"></div>
+        <div class="form-step">
+          <span class="form-step-num">2</span>
+          <span class="form-step-label">We review</span>
+        </div>
+        <div class="form-step-line" aria-hidden="true"></div>
+        <div class="form-step">
+          <span class="form-step-num">3</span>
+          <span class="form-step-label">We contact you</span>
+        </div>
+        <div class="form-step-line" aria-hidden="true"></div>
+        <div class="form-step">
+          <span class="form-step-num">4</span>
+          <span class="form-step-label">Enjoy your trip!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ MAIN CONTENT ════════════════════════════════════════ -->
+  <main id="main-content">
+    <div class="form-page-section">
+      <div class="container">
+        <div class="form-page-layout">
+
+          <!-- ── Sidebar ── -->
+          <aside class="form-sidebar" aria-label="Request information">
+
+            <!-- Why request -->
+            <div class="form-info-card">
+              <div class="form-info-icon">&#x1F30F;</div>
+              <h2 class="form-info-title">Why Submit a Request?</h2>
+              <ul class="form-info-list">
+                <li>&#x2705; Get personalised itinerary help</li>
+                <li>&#x2705; Priority booking assistance</li>
+                <li>&#x2705; Local guide recommendations</li>
+                <li>&#x2705; Up-to-date travel advisories</li>
+                <li>&#x2705; Transport &amp; accommodation tips</li>
+              </ul>
+            </div>
+
+            <!-- Contact info -->
+            <div class="form-info-card form-info-card--contact">
+              <h3 class="form-info-sub-title">&#x1F4DE; Contact Us Directly</h3>
+              <p>Prefer to reach out directly? We're happy to hear from you.</p>
+              <div class="form-contact-rows">
+                <div class="form-contact-row">
+                  <span class="form-contact-icon">&#x2709;&#xFE0F;</span>
+                  <span>tourism@negros-occ.gov.ph</span>
+                </div>
+                <div class="form-contact-row">
+                  <span class="form-contact-icon">&#x1F4CD;</span>
+                  <span>Capitol Building, Bacolod City</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Destinations teaser -->
+            <div class="form-info-card form-info-card--browse">
+              <h3 class="form-info-sub-title">&#x1F5FA;&#xFE0F; Need Inspiration?</h3>
+              <p>Browse all available destinations before deciding where to go.</p>
+              <a href="records.html" class="form-browse-link">View Destinations &#x2192;</a>
+            </div>
+
+          </aside>
+
+          <!-- ── Form Panel ── -->
+          <div class="form-panel">
+
+            <!-- Success & Error Alerts -->
+            <div id="alert-success" class="form-alert form-alert--success" role="alert" aria-live="polite">
+              <span class="form-alert-icon">&#x1F389;</span>
+              <div class="form-alert-body">
+                <strong>Request submitted!</strong>
+                <p>Thank you! Our team will review your request and email you within 1–3 business days.</p>
+              </div>
+            </div>
+            <div id="alert-error" class="form-alert form-alert--error" role="alert" aria-live="polite">
+              <span class="form-alert-icon">&#x26A0;&#xFE0F;</span>
+              <div class="form-alert-body">
+                <strong>Oops!</strong>
+                <p id="alert-error-msg">Something went wrong. Please try again or contact us directly.</p>
+              </div>
+            </div>
+
+            <!-- Form -->
+            <form id="visit-form" class="request-form" novalidate aria-labelledby="form-heading">
+
+              <div class="form-panel-header">
+                <h2 id="form-heading" class="form-panel-title">
+                  &#x270D;&#xFE0F; Your Visit Details
+                </h2>
+                <p class="form-panel-sub">
+                  Fields marked <span class="required">*</span> are required.
+                </p>
+              </div>
+
+              <!-- ── Section: Personal Information ── -->
+              <div class="form-section-block">
+                <div class="form-section-label">
+                  <span class="form-section-num">01</span>
+                  <span>Personal Information</span>
+                </div>
+                <div class="form-grid">
+
+                  <div class="form-field">
+                    <label for="full_name">
+                      Full Name <span class="required" aria-label="required">*</span>
+                    </label>
+                    <div class="form-input-wrap">
+                      <span class="form-input-icon" aria-hidden="true">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                      </span>
+                      <input type="text"
+                             id="full_name"
+                             name="full_name"
+                             autocomplete="name"
+                             placeholder="e.g. Juan dela Cruz"
+                             required
+                             aria-required="true">
+                    </div>
+                    <span class="form-field-hint" id="full_name_hint"></span>
+                  </div>
+
+                  <div class="form-field">
+                    <label for="email">
+                      Email Address <span class="required" aria-label="required">*</span>
+                    </label>
+                    <div class="form-input-wrap">
+                      <span class="form-input-icon" aria-hidden="true">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+                      </span>
+                      <input type="email"
+                             id="email"
+                             name="email"
+                             autocomplete="email"
+                             placeholder="you@example.com"
+                             required
+                             aria-required="true">
+                    </div>
+                    <span class="form-field-hint" id="email_hint"></span>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- ── Section: Visit Information ── -->
+              <div class="form-section-block">
+                <div class="form-section-label">
+                  <span class="form-section-num">02</span>
+                  <span>Visit Information</span>
+                </div>
+                <div class="form-grid">
+
+                  <div class="form-field full">
+                    <label for="destination-select">
+                      Destination <span class="required" aria-label="required">*</span>
+                    </label>
+                    <div class="form-input-wrap">
+                      <span class="form-input-icon" aria-hidden="true">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      </span>
+                      <select id="destination-select"
+                              name="destination_select"
+                              required
+                              aria-required="true">
+                        <option value="" disabled selected>Select a destination…</option>
+                        <!-- Options populated by form.js -->
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-field">
+                    <label for="visit_date">
+                      Visit Date <span class="required" aria-label="required">*</span>
+                    </label>
+                    <div class="form-input-wrap">
+                      <span class="form-input-icon" aria-hidden="true">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                      </span>
+                      <input type="date"
+                             id="visit_date"
+                             name="visit_date"
+                             required
+                             aria-required="true">
+                    </div>
+                  </div>
+
+                  <div class="form-field">
+                    <label for="num_visitors">
+                      Number of Visitors <span class="required" aria-label="required">*</span>
+                    </label>
+                    <div class="form-input-wrap">
+                      <span class="form-input-icon" aria-hidden="true">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                      </span>
+                      <input type="number"
+                             id="num_visitors"
+                             name="num_visitors"
+                             min="1"
+                             max="500"
+                             value="1"
+                             required
+                             aria-required="true">
+                    </div>
+                    <span class="form-field-hint">Max 500 visitors per request</span>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- ── Section: Message ── -->
+              <div class="form-section-block">
+                <div class="form-section-label">
+                  <span class="form-section-num">03</span>
+                  <span>Additional Details <span class="form-section-optional">(Optional)</span></span>
+                </div>
+                <div class="form-grid">
+                  <div class="form-field full">
+                    <label for="message">Special Requests or Questions</label>
+                    <textarea id="message"
+                              name="message"
+                              rows="5"
+                              placeholder="Tell us more — group type, accessibility needs, preferred activities, accommodation questions, etc."></textarea>
+                    <span class="form-field-hint">The more details you share, the better we can help!</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ── Submit ── -->
+              <div class="form-submit-area">
+                <button type="submit" id="submit-btn" class="form-submit-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                  Submit Visit Request
+                </button>
+                <a href="records.html" class="form-browse-btn">
+                  &#x1F5FA;&#xFE0F; Browse Destinations
+                </a>
+                <p class="form-privacy-note">
+                  &#x1F512; Your information is kept private and only used to assist your visit.
+                </p>
+              </div>
+
+            </form><!-- /visit-form -->
+
+          </div><!-- /.form-panel -->
+        </div><!-- /.form-page-layout -->
+      </div>
+    </div>
+  </main>
+
+  <!-- ══ FOOTER ══════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col footer-col--brand">
+            <a href="index.html" class="footer-logo" aria-label="Explore Negros – Homepage">
+              &#x1F33F; Explore <span>Negros</span>
+            </a>
+            <p class="footer-tagline">
+              Your gateway to the beauty, culture, and warmth of Negros Occidental
+              &mdash; the heart of the Philippines.
+            </p>
+            <div class="footer-tags">
+              <span class="footer-tag">&#x1F3DD;&#xFE0F; Islands</span>
+              <span class="footer-tag">&#x26F0;&#xFE0F; Mountains</span>
+              <span class="footer-tag">&#x1F3AD; Festivals</span>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h3 class="footer-col-heading">Explore</h3>
+            <ul class="footer-nav-list">
+              <li><a href="records.html">All Destinations</a></li>
+              <li><a href="form.html">Plan a Visit</a></li>
+              <li><a href="about.html">About the Province</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3 class="footer-col-heading">Help &amp; Info</h3>
+            <ul class="footer-nav-list">
+              <li><a href="about.html">How It Works</a></li>
+              <li><a href="about.html">FAQs</a></li>
+              <li><a href="form.html">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-col footer-col--cta">
+            <h3 class="footer-col-heading">Plan Your Trip</h3>
+            <p class="footer-cta-desc">Ready to visit? Submit a request and we'll help you plan your adventure.</p>
+            <a href="form.html" class="footer-cta-link">Get Started &#x2192;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-row">
+        <p class="footer-copy">&copy; 2026 Explore Negros Occidental. All rights reserved.</p>
+        <nav class="footer-bottom-nav" aria-label="Footer secondary links">
+          <a href="about.html">About</a>
+          <a href="admin.html">Admin</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══ SCRIPTS ══════════════════════════════════════════════ -->
+  <script src="assets/js/supabase.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/form.js"></script>
+
+</body>
+</html>

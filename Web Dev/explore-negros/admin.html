@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Negros admin dashboard — manage destinations and visitor requests.">
+  <title>Explore Negros | Admin Dashboard</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Additional admin-only micro-styles */
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60%  { transform: translateX(-6px); }
+      40%, 80%  { transform: translateX(6px); }
+    }
+    #admin-content { display: none; }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       PASSWORD GATE OVERLAY
+  ══════════════════════════════════════════════════════ -->
+  <div id="password-gate" class="gate-overlay" role="dialog"
+       aria-modal="true" aria-labelledby="gate-title">
+    <div class="gate-box">
+      <div class="gate-icon" aria-hidden="true">🔐</div>
+      <h2 id="gate-title">Admin Access</h2>
+      <p>Enter the admin password to access the dashboard.</p>
+      <form id="gate-form" novalidate>
+        <div class="form-field">
+          <label for="gate-password" class="visually-hidden">Password</label>
+          <input type="password"
+                 id="gate-password"
+                 name="gate-password"
+                 placeholder="Enter password"
+                 autocomplete="current-password"
+                 required
+                 aria-required="true">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:.5rem;">
+          Enter Dashboard
+        </button>
+        <p class="gate-error" id="gate-error" role="alert" aria-live="polite"></p>
+      </form>
+      <p style="margin-top:1.5rem;font-size:.8125rem;color:var(--color-text-muted);">
+        <a href="index.html" style="color:var(--color-primary);">← Return to public site</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════
+       ADMIN HEADER (separate from public nav)
+  ══════════════════════════════════════════════════════ -->
+  <header class="admin-header">
+    <div class="container admin-header-inner">
+      <div>
+        <span class="admin-logo">🌿 Explore Negros</span>
+        <span class="admin-badge">ADMIN</span>
+      </div>
+      <nav aria-label="Admin navigation">
+        <a href="index.html" class="admin-nav-link">← Public Site</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════════════════════
+       ADMIN DASHBOARD CONTENT
+       (hidden until password is verified)
+  ══════════════════════════════════════════════════════ -->
+  <main id="admin-content" aria-label="Admin dashboard">
+    <div class="admin-main">
+      <div class="container">
+
+        <!-- Greeting -->
+        <div class="admin-greeting">
+          <h1>Admin Dashboard</h1>
+          <p>
+            Welcome back! Last login: <time id="login-time"></time>
+          </p>
+        </div>
+
+        <!-- ── Stats Cards ──────────────────────────────── -->
+        <section aria-labelledby="stats-heading">
+          <h2 id="stats-heading" class="visually-hidden">Dashboard Statistics</h2>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-value" id="stat-destinations">…</div>
+              <div class="stat-label">Total Destinations</div>
+            </div>
+            <div class="stat-card teal">
+              <div class="stat-value" id="stat-active">…</div>
+              <div class="stat-label">Active Destinations</div>
+            </div>
+            <div class="stat-card accent">
+              <div class="stat-value" id="stat-requests">…</div>
+              <div class="stat-label">Total Requests</div>
+            </div>
+            <div class="stat-card danger">
+              <div class="stat-value" id="stat-pending">…</div>
+              <div class="stat-label">Pending Requests</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── Destination Records Table ─────────────────── -->
+        <section class="admin-section" aria-labelledby="dest-table-heading">
+          <div class="admin-section-header">
+            <h2 id="dest-table-heading">Destination Records</h2>
+            <a href="records.html" class="btn btn-outline btn-sm">View Public List</a>
+          </div>
+          <div class="data-table-wrap">
+            <table aria-label="Destination records">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Location</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="dest-tbody">
+                <tr>
+                  <td colspan="4">
+                    <div class="loading">
+                      <div class="spinner"></div>
+                      <span>Loading…</span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- ── Visitor Requests Table ─────────────────────── -->
+        <section class="admin-section" aria-labelledby="req-table-heading">
+          <div class="admin-card-container">
+            <div class="admin-table-header">
+              <div class="table-header-left">
+                <div class="header-title-row">
+                  <h2 id="req-table-heading">Visitor Requests</h2>
+                  <span class="table-count-badge" id="req-count-badge">0 requests</span>
+                </div>
+                <p class="table-header-desc">Review and manage travel inquiries and requests in real time.</p>
+              </div>
+              <div class="admin-section-actions">
+                <button class="btn btn-outline btn-sm btn-sync" id="refresh-req-btn" type="button" title="Sync live database">
+                  <span class="refresh-icon" aria-hidden="true">🔄</span>
+                  <span>Sync</span>
+                </button>
+                <a href="form.html" class="btn btn-primary btn-sm">+ New Request</a>
+              </div>
+            </div>
+
+            <!-- Table Controls: Search & Status Filter Tabs -->
+            <div class="table-toolbar">
+              <div class="table-search-box">
+                <span class="search-icon" aria-hidden="true">🔍</span>
+                <input type="search"
+                       id="req-search"
+                       placeholder="Search visitor, email, destination…"
+                       aria-label="Search visitor requests">
+              </div>
+              <div class="table-filter-tabs" role="tablist" aria-label="Filter requests by status">
+                <button class="filter-tab active" data-status="all" type="button" role="tab" aria-selected="true">
+                  <span>All</span>
+                  <span class="tab-count" id="count-all">0</span>
+                </button>
+                <button class="filter-tab" data-status="pending" type="button" role="tab" aria-selected="false">
+                  <span class="status-indicator-dot dot-pending" aria-hidden="true"></span>
+                  <span>Pending</span>
+                  <span class="tab-count" id="count-pending">0</span>
+                </button>
+                <button class="filter-tab" data-status="approved" type="button" role="tab" aria-selected="false">
+                  <span class="status-indicator-dot dot-approved" aria-hidden="true"></span>
+                  <span>Approved</span>
+                  <span class="tab-count" id="count-approved">0</span>
+                </button>
+                <button class="filter-tab" data-status="rejected" type="button" role="tab" aria-selected="false">
+                  <span class="status-indicator-dot dot-rejected" aria-hidden="true"></span>
+                  <span>Rejected</span>
+                  <span class="tab-count" id="count-rejected">0</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Data Table Wrapper -->
+            <div class="data-table-wrap">
+              <table aria-label="Visitor requests" class="modern-data-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="min-width: 200px;">Visitor</th>
+                    <th scope="col" style="min-width: 170px;">Destination</th>
+                    <th scope="col" style="min-width: 140px;">Visit Date</th>
+                    <th scope="col" style="min-width: 120px;">Party Size</th>
+                    <th scope="col" style="min-width: 130px;">Status</th>
+                    <th scope="col" style="min-width: 130px; text-align: right;">Note & Actions</th>
+                  </tr>
+                </thead>
+              <tbody id="req-tbody">
+                <tr>
+                  <td colspan="6">
+                    <div class="loading">
+                      <div class="spinner"></div>
+                      <span>Loading visitor requests…</span>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div><!-- /admin-card-container -->
+      </section>
+
+      </div><!-- /container -->
+    </div><!-- /admin-main -->
+  </main>
+
+  <!-- ══ FOOTER ══════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col footer-col--brand">
+            <a href="index.html" class="footer-logo" aria-label="Explore Negros – Homepage">
+              &#x1F33F; Explore <span>Negros</span>
+            </a>
+            <p class="footer-tagline">
+              Your gateway to the beauty, culture, and warmth of Negros Occidental
+              &mdash; the heart of the Philippines.
+            </p>
+            <div class="footer-tags">
+              <span class="footer-tag">&#x1F3DD;&#xFE0F; Islands</span>
+              <span class="footer-tag">&#x26F0;&#xFE0F; Mountains</span>
+              <span class="footer-tag">&#x1F3AD; Festivals</span>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h3 class="footer-col-heading">Explore</h3>
+            <ul class="footer-nav-list">
+              <li><a href="records.html">All Destinations</a></li>
+              <li><a href="form.html">Plan a Visit</a></li>
+              <li><a href="about.html">About the Province</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h3 class="footer-col-heading">Help &amp; Info</h3>
+            <ul class="footer-nav-list">
+              <li><a href="about.html">How It Works</a></li>
+              <li><a href="about.html">FAQs</a></li>
+              <li><a href="form.html">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="footer-col footer-col--cta">
+            <h3 class="footer-col-heading">Plan Your Trip</h3>
+            <p class="footer-cta-desc">Ready to visit? Submit a request and we'll help you plan your adventure.</p>
+            <a href="form.html" class="footer-cta-link">Get Started &#x2192;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-row">
+        <p class="footer-copy">&copy; 2026 Explore Negros Occidental. Admin Portal.</p>
+        <nav class="footer-bottom-nav" aria-label="Footer secondary links">
+          <a href="index.html">Public Site</a>
+          <a href="records.html">Destinations</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══ SCRIPTS ══════════════════════════════════════════════ -->
+  <script src="assets/js/supabase.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/admin.js"></script>
+
+  <!-- Visually hidden utility (for screen-reader-only text) -->
+  <style>
+    .visually-hidden {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
+</body>
+</html>
